@@ -1,0 +1,9 @@
+# Maintainers: Keep moderation here and route product feedback and vulnerabilities to the main repository.
+blank_issues_enabled: false
+contact_links:
+  - name: Server or website bug, question, or feature request
+    url: https://github.com/SchemaFoxLabs/NetherMC/issues/new/choose
+    about: Use the main repository for product feedback, rather than player reports or appeals.
+  - name: Report a security vulnerability privately
+    url: https://github.com/SchemaFoxLabs/NetherMC/security
+    about: Select Report a vulnerability. If unavailable, ask only about an appropriate reporting method; do not publish exploit details.

@@ -1,0 +1,121 @@
+# Maintainers: Keep Report-ID instructions and confidence requirements aligned with the English rules.
+name: Player report
+description: Report player misconduct with a valid in-game Report-ID and redacted evidence or verifiable leads.
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read the [reporting instructions](https://github.com/Labs-mcdev/NetherMC-PublicReport#player-reports) and [server and community rules](https://github.com/SchemaFoxLabs/NetherMC/blob/main/docs/SERVER_RULES.md).
+
+        A valid in-game Report-ID is required. Staff check the associated game records to identify the reporter and reported player; possessing the ID alone does not complete identity verification. Streamer Mode hides the relevant chat display. View My Reports with `/report-mylist`. Old reports are periodically cleared: if the original ID is unavailable, use `/inforeport` **on the subserver where the reported player committed the violation** to obtain a new ID. Still give the original incident time; a new ID does not restore cleared records.
+
+        Submit only redacted evidence on GitHub. Do not publish private identities, sensitive identifiers, credentials, or raw sensitive evidence.
+
+        Illegal skins can only be reported in-game. Use the no-media form for CSAM Content or Illegal PlayerID. Report vulnerabilities through the [main repository's Security page](https://github.com/SchemaFoxLabs/NetherMC/security), without publishing exploit details.
+  - type: input
+    id: report_id
+    attributes:
+      label: In-game Report-ID
+      description: Enter a valid ID linked to the in-game report. Use /report-mylist to find it, or /inforeport on the incident subserver if the original is no longer available. Do not enter a placeholder.
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: Violation type
+      options:
+        - Hate speech
+        - Aggressive or insulting statements toward players
+        - Cheating
+        - Harmful cult / terrorist / fascist activity
+        - Bot automation
+        - Rank boosting
+        - Solo sniping in Unranked
+        - Solo sniping in Ranked
+        - Coordinated sniping by multiple players
+        - Commercial activity / fiat or virtual currency trading
+        - Using FSPoint as currency
+        - Exploit / server attack
+        - Spam / unauthorized advertising / external media links
+        - Political campaigning / propaganda / disruptive political debate in public chat
+        - Sexual innuendo / pornography / R18G
+        - Staff or player impersonation
+        - Scam / phishing / malicious links
+        - Repeated harassment / threats / blackmail
+        - Sharing or threatening to share private information
+        - Ban or mute evasion
+    validations:
+      required: true
+  - type: input
+    id: server
+    attributes:
+      label: Incident subserver
+      description: Identify the subserver where the original conduct occurred.
+      placeholder: "Example: Practice (practice)"
+    validations:
+      required: true
+  - type: input
+    id: mode
+    attributes:
+      label: Relevant game mode or feature
+      description: Identify Ranked, Unranked, chat, or the relevant feature.
+    validations:
+      required: true
+  - type: input
+    id: time
+    attributes:
+      label: Original incident time (UTC-8)
+      description: Give the original incident time using the fixed UTC-8 offset, even if you obtained a new ID later. If approximate, say so.
+      placeholder: "YYYY-MM-DD HH:mm UTC-08:00"
+    validations:
+      required: true
+  - type: textarea
+    id: incident_context
+    attributes:
+      label: Incident context
+      description: Describe what happened. For sniping, give the match, timing, and behavior context staff can check against in-game records. Remove private identities and unnecessary Match IDs or opponent details; do not publish exploit instructions or active malicious links.
+    validations:
+      required: true
+  - type: dropdown
+    id: confidence
+    attributes:
+      label: Confidence
+      description: Your assessment, not a staff finding. Higher confidence requires more complete and verifiable information.
+      options:
+        - I thought
+        - Vague evidence
+        - Highly suspected
+        - Blatant violations
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: |
+        **I thought:** specific investigable leads; distinguish observation from assumption.
+        **Vague evidence:** relevant but incomplete records; explain limitations.
+        **Highly suspected:** continuous context or mutually supporting records.
+        **Blatant violations:** clear, complete records or equivalent evidence allowing direct verification of the key conduct.
+        Insufficient evidence is not automatically abusive reporting.
+  - type: textarea
+    id: confidence_basis
+    attributes:
+      label: Basis for this confidence level
+      description: Explain how the information supports your selection, including uncertainty, missing context, and limitations. Do not infer guilt from online opinion or report counts.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Redacted evidence and locating information
+      description: Provide screenshots, recordings, timestamps, or verifiable leads appropriate to your confidence level. Explain privacy redactions and preserve relevant context. If records are incomplete or no media is available, describe the investigable leads and limitations honestly. Do not publish raw sensitive evidence or CSAM.
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Before submitting
+      options:
+        - label: I have provided a valid in-game Report-ID and accurately described the original incident.
+          required: true
+        - label: I have removed private information and sensitive identifiers from this public report and have not fabricated evidence.
+          required: true
